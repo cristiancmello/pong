@@ -14,6 +14,9 @@ buildscript {
   }
 }
 apply plugin: 'kotlin'
+kotlin {
+    jvmToolchain(25)
+}
 
 allprojects {
   apply plugin: 'eclipse'
@@ -30,6 +33,12 @@ allprojects {
 
 configure(subprojects) {
   apply plugin: 'java-library'
+
+  java {
+    toolchain {
+      languageVersion = JavaLanguageVersion.of(25)
+    }
+  }
 
     // From https://lyze.dev/2021/04/29/libGDX-Internal-Assets-List/
   // The article can be helpful when using assets.txt in your project.
@@ -58,7 +67,7 @@ configure(subprojects) {
 
 subprojects {
   version = "$projectVersion"
-  ext.appName = 'ktx-gdx-demo-1'
+  ext.appName = 'pong'
   repositories {
     mavenCentral()
     // You may want to remove the following line if you have errors downloading dependencies.
@@ -68,7 +77,7 @@ subprojects {
   }
 }
 
-eclipse.project.name = 'ktx-gdx-demo-1' + '-parent'
+eclipse.project.name = 'pong' + '-parent'
 repositories {
     mavenCentral()
 }
