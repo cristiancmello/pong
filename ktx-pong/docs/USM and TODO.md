@@ -57,11 +57,11 @@ The order is by vertical slices: each phase ends with something demonstrable and
 
 ### Phase 0: Groundwork (EN-01, EN-02)
 
-- [ ] Remove the template's `FirstScreen`, `logo.png` and the `ktx-gdx-demo-1` title.
-- [ ] Prune `core` dependencies. Ashley, Artemis, Box2D, gdx-ai, scene2d, vis and tiled are not part of the design. Box2D in particular is a temptation to leak the Collision System's secret. Keep `ktx-app`, `ktx-graphics`, `ktx-math` and `ktx-log`.
-- [ ] Align toolchains. The root `build.gradle` uses `jvmToolchain(8)`, `core` uses 25 and `lwjgl3` uses 25.
-- [ ] Create the Gradle module `domain` (pure Kotlin, only `kotlin-test`). `core` depends on it, never the reverse. The compiler now enforces the one-way flow.
-- [ ] Record the open decisions (section 4) in `docs/adr/`.
+- [DONE] Remove the template's `FirstScreen`, `logo.png` and the `ktx-gdx-demo-1` title.
+- [DONE] Prune `core` dependencies. Ashley, Artemis, Box2D, gdx-ai, scene2d, vis and tiled are not part of the design. Box2D in particular is a temptation to leak the Collision System's secret. Keep `ktx-app`, `ktx-graphics`, `ktx-math` and `ktx-log`.
+- [DONE] Align toolchains. The root `build.gradle` uses `jvmToolchain(8)`, `core` uses 25 and `lwjgl3` uses 25.
+- [DONE] Create the Gradle module `domain` (pure Kotlin, only `kotlin-test`). `core` depends on it, never the reverse. The compiler now enforces the one-way flow.
+- [DONE] Record the open decisions (section 4) in `docs/adr/`.
 
 **Done when:** `./gradlew test` runs in `domain` with no libGDX class on the classpath.
 
